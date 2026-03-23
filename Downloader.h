@@ -19,13 +19,11 @@ private:
     void LogStart();
     void LogEnd();
     bool ReadUrls();
-    DownloadResult DownloadFile(const string& url);
 
     string m_urlFile;
     string m_outputDir;
     int m_parallelCount;
 
-    atomic<int> m_activeDownloads{ 0 };
     atomic<int> m_completedDownloads{ 0 };
     vector<string> m_urls;
     mutex m_logMutex;
