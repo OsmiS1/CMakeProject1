@@ -1,3 +1,5 @@
+#define _HAS_STD_BYTE 0
+
 #include "WinHttpClient.h"
 #include "FileUtils.h"
 #include <iostream>

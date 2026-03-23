@@ -1,0 +1,38 @@
+# Рабочие URL
+https://www.google.com/favicon.ico
+https://www.github.com/favicon.ico
+https://www.microsoft.com/favicon.ico
+https://www.python.org/static/img/python-logo.png
+https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/OpenSSL_logo.svg/200px-OpenSSL_logo.svg.png
+https://www.w3.org/Icons/w3c_home.png
+https://www.apache.org/favicon.ico
+https://www.nginx.com/favicon.ico
+https://www.docker.com/favicon.ico
+https://www.mysql.com/common/logos/mysql-logo.png
+
+# HTTP Bin для тестирования
+https://httpbin.org/image/png
+https://httpbin.org/image/jpeg
+https://httpbin.org/robots.txt
+https://httpbin.org/html
+https://httpbin.org/xml
+https://httpbin.org/bytes/1024
+https://httpbin.org/stream/10
+
+# Тестирование ошибок
+https://httpbin.org/status/200
+https://httpbin.org/status/404
+https://httpbin.org/status/500
+https://httpbin.org/status/403
+https://httpbin.org/status/401
+
+# Тестирование Content-Disposition
+https://httpbin.org/response-headers?Content-Disposition=attachment;%20filename=test.pdf
+https://httpbin.org/response-headers?Content-Disposition=attachment;%20filename=document.docx
+https://httpbin.org/response-headers?Content-Disposition=attachment;%20filename=image.png
+https://httpbin.org/response-headers?Content-Disposition=attachment;%20filename*=utf-8''%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80.txt
+
+# Несуществующие URL
+https://this-domain-does-not-exist-12345.com/file.txt
+https://httpbin.org/not-exist-endpoint
+https://www.google.com/this-file-does-not-exist-12345.html

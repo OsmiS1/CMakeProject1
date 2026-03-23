@@ -1,4 +1,7 @@
 #pragma once
+
+#define _HAS_STD_BYTE 0
+
 #include <string>
 #include <vector>
 #include <windows.h>
@@ -26,7 +29,6 @@ class WinHttpClient {
 public:
     WinHttpClient();
     ~WinHttpClient();
-
     DownloadResult DownloadFile(const string& url, const string& outputDir = "");
 
 private:

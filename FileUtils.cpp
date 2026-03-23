@@ -1,10 +1,4 @@
 #include "FileUtils.h"
-#include <chrono>
-#include <iomanip>
-#include <sstream>
-#include <iostream>
-#include <regex>
-#include <windows.h>
 #include <shlwapi.h>
 
 using namespace std;
@@ -17,7 +11,7 @@ string FileUtils::GetCurrentTimestamp() {
     long long ms = value.count() % 1000;
 
     time_t now_time = chrono::system_clock::to_time_t(now);
-    tm tm;
+    struct tm tm;
     localtime_s(&tm, &now_time);
 
     ostringstream oss;
@@ -39,11 +33,9 @@ bool FileUtils::CreateDirectory(const string& path) {
 
 string FileUtils::SanitizeFilename(const string& filename) {
     string result = filename;
-    // Замена недопустимых символов Windows на подчеркивание
     regex invalid_chars("[<>:\"/\\\\|?*]");
     result = regex_replace(result, invalid_chars, "_");
 
-    // Удаление управляющих символов
     result.erase(remove_if(result.begin(), result.end(),
         [](char c) { return c < 32; }), result.end());
 
@@ -71,18 +63,4 @@ string FileUtils::GenerateUniqueFilename(const string& directory, const string& 
         }
         counter++;
     }
-}
-
-bool FileUtils::FileExists(const string& path) {
-    return fs::exists(path);
-}
-
-string FileUtils::GetFileExtension(const string& filename) {
-    fs::path p(filename);
-    return p.extension().string();
-}
-
-string FileUtils::GetFileNameWithoutExtension(const string& filename) {
-    fs::path p(filename);
-    return p.stem().string();
 }

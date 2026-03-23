@@ -1,4 +1,7 @@
 #pragma once
+
+#define _HAS_STD_BYTE 0
+
 #include <vector>
 #include <queue>
 #include <thread>
@@ -7,6 +10,7 @@
 #include <functional>
 #include <future>
 #include <memory>
+#include <type_traits>
 
 using namespace std;
 
@@ -38,8 +42,8 @@ public:
 
     template<class F, class... Args>
     auto enqueue(F&& f, Args&&... args)
-        -> future<typename result_of<F(Args...)>::type> {
-        using return_type = typename result_of<F(Args...)>::type;
+        -> future<typename invoke_result<F, Args...>::type> {
+        using return_type = typename invoke_result<F, Args...>::type;
 
         auto task = make_shared<packaged_task<return_type()>>(
             bind(forward<F>(f), forward<Args>(args)...)
