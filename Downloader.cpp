@@ -7,7 +7,9 @@
 using namespace std;
 
 Downloader::Downloader(const string& urlFile, const string& outputDir, int parallelCount)
-    : m_urlFile(urlFile), m_outputDir(outputDir), m_parallelCount(parallelCount) {
+    : m_urlFile(urlFile)
+    , m_outputDir(outputDir)
+    , m_parallelCount(parallelCount) {
 
     if (parallelCount < 1 || parallelCount > 999) {
         throw invalid_argument("Количество потоков должно быть от 1 до 999");
@@ -41,11 +43,9 @@ bool Downloader::ReadUrls() {
 
     string url;
     while (getline(file, url)) {
-        // Удаление символа возврата каретки для Windows
         if (!url.empty() && url.back() == '\r') {
             url.pop_back();
         }
-
         if (!url.empty()) {
             m_urls.push_back(url);
         }

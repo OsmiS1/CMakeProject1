@@ -1,7 +1,4 @@
 #pragma once
-
-#define _HAS_STD_BYTE 0
-
 #include <vector>
 #include <queue>
 #include <thread>
